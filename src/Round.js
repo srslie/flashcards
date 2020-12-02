@@ -20,7 +20,7 @@ class Round {
   }
 
   calculatePercentCorrect() {
-    return this.incorrectGuesses ? (Math.ceil(this.incorrectGuesses.length / this.deck.length) * 100) : 0
+    return this.turns ? (Math.ceil(((this.turns - this.incorrectGuesses.length) / this.turns) * 100)) : 0
   }
 
   endRound() {
