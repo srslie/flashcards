@@ -12,7 +12,7 @@ class Round {
   }
 
   takeTurn(guess) {
-    let currentTurn = new Turn('guess', this.deck.cards[this.turns])
+    let currentTurn = new Turn(guess, this.deck.cards[this.turns])
     if (!currentTurn.evaluateGuess()) {
       this.incorrectGuesses.push(guess)
     }
