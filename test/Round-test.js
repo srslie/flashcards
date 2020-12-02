@@ -61,13 +61,13 @@ describe('Round', function() {
 
   it('should calculate percentage of correct guesses', function() {
     round.takeTurn('array')
-    expect(round.calculatePercentCorrect).to.equal(0);
+    expect(round.calculatePercentCorrect()).to.equal(0);
 
     round.takeTurn('sea otter')
-    expect(round.calculatePercentCorrect).to.equal(50);
+    expect(round.calculatePercentCorrect()).to.equal(50);
 
     round.takeTurn('gallbladder')
-    expect(round.calculatePercentCorrect).to.equal(2/3);
+    expect(round.calculatePercentCorrect()).to.equal(67);
   });
 
   it('should end a round', function() {
