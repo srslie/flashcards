@@ -29,7 +29,6 @@ describe('Game', function() {
 
   it('should create cards', function() {
     expect(game.currentRound.deck.cards[0]).to.be.an.instanceof(Card)
-
   });
 
   it('should put cards in a deck', function() {
