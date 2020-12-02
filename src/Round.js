@@ -12,19 +12,27 @@ class Round {
   }
 
   takeTurn(guess) {
-    let currentTurn = new Turn(guess, this.deck.cards[this.turns])
+    if (this.turns === this.deck.length) {
+      return this.endRound()
+    }
+
+    const currentTurn = new Turn(guess, this.deck.cards[this.turns])
     if (!currentTurn.evaluateGuess()) {
       this.incorrectGuesses.push(guess)
     }
+
     this.turns++
+    return currentTurn.giveFeedback()
   }
 
   calculatePercentCorrect() {
-    return this.turns ? (Math.ceil(((this.turns - this.incorrectGuesses.length) / this.turns) * 100)) : 0
+    const correctGuesses = this.turns - this.incorrectGuesses.length
+    const percentCorrect = Math.ceil((correctGuesses / this.turns) * 100)
+    return this.turns ? percentCorrect : 0
   }
 
   endRound() {
-    return `**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    console.log(`**Round over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`)
   }
 }
 
