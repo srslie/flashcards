@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const Game = require('../src/Game');
+const Game = require('./Game');
 
 
 const genList = (round) => {
@@ -43,18 +43,24 @@ const exitGamePrompt = () => {
   }
 }
 
-//it's not recognizing Game
-const exitOrRestart = (response) => {
+const getGame = (game) => {
+  return Promise.resolve(game);
+}
+
+async function exitOrRestart(response, game) {
   if (response ===  'Exit') {
     process.exit();
   } else {
-    let game = new Game()
-    game.start()
+    try {
+      const currentGame = await getGame(game);
+      currentGame.start()
+    } catch {
+      console.error(process)
+    }
   }
 }
 
-async function main(round) {
-
+async function main(round, game) {
   const currentRound = await getRound(round);
   const getAnswer = await inquirer.prompt(genList(currentRound));
   const getConfirm = await inquirer.prompt(confirmUpdate(getAnswer.answers, round));
@@ -62,7 +68,7 @@ async function main(round) {
     if(!round.returnCurrentCard()) {
       round.endRound();
       const getResponse = await inquirer.prompt(exitGamePrompt())
-      exitOrRestart(getResponse.response)
+      exitOrRestart(getResponse.response, game)
     } else {
       main(round);
     }
