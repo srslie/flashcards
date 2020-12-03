@@ -12,10 +12,6 @@ class Round {
   }
 
   takeTurn(guess) {
-    if (this.turns === this.deck.length) {
-      return this.endRound()
-    }
-
     const currentTurn = new Turn(guess, this.deck.cards[this.turns])
     if (!currentTurn.evaluateGuess()) {
       this.incorrectGuesses.push(guess)
