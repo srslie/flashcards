@@ -6,7 +6,7 @@ In this command-line quiz, the user is prompted, selects an answer to each quest
 
 This is the first solo project of Mod 2 of the Front-End program at Turing School. The project was designed by [Turing School Staff](https://frontend.turing.io/projects/flash-cards.html) and implemented by me, [Alice Ruppert](https://github.com/srslie).
 
-My goals were to learn to write tests, implement a dynamic program without a front-end (using only the command line and module-exports), use a linter on my code, and follow a guide to create this functionality in the span of only a few days.
+My goals were to learn to write tests, implement a dynamic program without a front-end (using only the command line and module-exports), use a linter on my code, and follow a guide to create this functionality in the span of only a few days. I did use a [kanban-stype project board](https://github.com/srslie/flashcards/projects/1) for this to practice planning and organizing my workflow.
 
 Special thanks to my mentor, [Scott Schipke](https://github.com/sschipke), and my partner for their technical and emotional support.
 

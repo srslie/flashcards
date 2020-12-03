@@ -31,7 +31,6 @@ const confirmUpdate = (guess, round) => {
   }
 }
 
-//Working on trying to get the game to prompt for a exit or restart after the Round ends
 const exitGamePrompt = () => {
   return {
     type: 'rawlist',
@@ -44,6 +43,7 @@ const exitGamePrompt = () => {
   }
 }
 
+//it's not recognizing Game
 const exitOrRestart = (response) => {
   if (response ===  'Exit') {
     process.exit();
