@@ -31,6 +31,10 @@ const confirmUpdate = (guess, round) => {
   }
 }
 
+function getGame(game) {
+  return Promise.resolve(game);
+}
+
 const exitGamePrompt = () => {
   return {
     type: 'rawlist',
@@ -43,10 +47,6 @@ const exitGamePrompt = () => {
   }
 }
 
-const getGame = (game) => {
-  return Promise.resolve(game);
-}
-
 async function exitOrRestart(response, game) {
   if (response ===  'Exit') {
     process.exit();
@@ -54,8 +54,8 @@ async function exitOrRestart(response, game) {
     try {
       const currentGame = await getGame(game);
       currentGame.start()
-    } catch {
-      console.error(process)
+    } catch(error) {
+      console.error(error)
     }
   }
 }
@@ -64,13 +64,12 @@ async function main(round, game) {
   const currentRound = await getRound(round);
   const getAnswer = await inquirer.prompt(genList(currentRound));
   const getConfirm = await inquirer.prompt(confirmUpdate(getAnswer.answers, round));
-
     if(!round.returnCurrentCard()) {
       round.endRound();
       const getResponse = await inquirer.prompt(exitGamePrompt())
       exitOrRestart(getResponse.response, game)
     } else {
-      main(round);
+      main(round, game);
     }
 }
 
