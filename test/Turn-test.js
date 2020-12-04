@@ -5,7 +5,7 @@ const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
 describe('Turn', function() {
-  let turn, card, turnOne, turn2
+  let turn, card, turnOne, turnTwo
 
   beforeEach(function() {
     turn = new Turn()
