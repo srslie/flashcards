@@ -14,7 +14,7 @@ Special thanks to my mentor, [Scott Schipke](https://github.com/sschipke), and m
 
 You're prompted for each question, given the opportunity to select an answer, and then given feedback. You're able to play through the entire deck of cards, and shown the percent you guessed correctly at the end of the round:
 
-![flash cards example gif](https://media.giphy.com/media/CKQgfRGHQevgkJVted/giphy.gif)
+![flash cards example gif](https://media.giphy.com/media/QcOC0Uc5HhXm8x9Xtt/giphy.gif)
 
 ## Setup & Install
 
